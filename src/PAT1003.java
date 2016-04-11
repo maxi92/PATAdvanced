@@ -80,9 +80,9 @@ public class PAT1003 {
         {
             double mindist = 1000;
             int k = -1;
-            for(int i=0; i<V; i++)
+            for(int i = 0; i < V; i++)
             {
-                if(!marked[i] && distTo[i]<mindist)
+                if(!marked[i] && distTo[i] < mindist)
                 {
                     mindist = distTo[i];
                     k = i;
@@ -103,7 +103,8 @@ public class PAT1003 {
                 else if(!marked[i] && distTo[i] == distTo[k] + map[k][i])
                 {
                     roadnum[i] += roadnum[k];
-                    rescuenum[i] = (rescuenum[i] > rescuenum[k] + rescue[i]) ? rescuenum[i] : rescuenum[k] + rescue[i];
+                    rescuenum[i] = (rescuenum[i] > rescuenum[k] + rescue[i]) 
+                            ? rescuenum[i] : rescuenum[k] + rescue[i];
                 }
             }
         }
