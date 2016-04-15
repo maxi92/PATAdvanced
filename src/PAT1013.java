@@ -40,14 +40,7 @@ public class PAT1013 {
     }
     
     public static void main(String[] args) throws IOException {
-        // TODO Auto-generated method stub        
-        /*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = br.readLine();
-        String tmp[] = str.split(" ");
-        N = Integer.parseInt(tmp[0]);
-        M = Integer.parseInt(tmp[1]);
-        K = Integer.parseInt(tmp[2]);*/
-        
+
         Scanner1 in = new Scanner1(System.in);
         N = in.nextInt();
         M = in.nextInt();
@@ -63,22 +56,20 @@ public class PAT1013 {
         
         for(int i = 0; i < M; i++)
         {
-            /*str = br.readLine();
-            tmp = str.split(" ");
-            int m = Integer.parseInt(tmp[0]) - 1;
-            int n = Integer.parseInt(tmp[1]) - 1;*/
             int m = in.nextInt() - 1;
             int n = in.nextInt() - 1 ;
             map[m].add(n);
             map[n].add(m);
         }
         
-        /*str = br.readLine();
-        tmp = str.split(" ");*/
+
         
         for(int i = 0; i < K; i++)
         {
-            //int m = Integer.parseInt(tmp[i]) - 1;
+            if(N == 1){
+                System.out.print(0);
+                break;
+            }
             int m = in.nextInt() - 1;
             cal(m);
             System.out.println(count-2);

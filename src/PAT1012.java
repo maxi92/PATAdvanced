@@ -1,9 +1,9 @@
 /*
- * 本问题不难，但是有两个点需要注意一下
- * 第一，对于不需要的元素（根据输入来判断是否需要）不用进行排名计算，可以节省时间
- * 第二，Java的效率非常之低，特别是体现在IO上，所以对于有大量输入的题目尽量避免使用Scanner类，使用BufferedReader类会好很多
- * 虽然BufferedReader类使用不那么方便，但是能节约时间
- * 这次超时就是因为使用了Scanner类
+ * 锟斤拷锟斤拷锟解不锟窖ｏ拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷要注锟斤拷一锟斤拷
+ * 锟斤拷一锟斤拷锟斤拷锟节诧拷锟斤拷要锟斤拷元锟截ｏ拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟叫讹拷锟角凤拷锟斤拷要锟斤拷锟斤拷锟矫斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟姐，锟斤拷锟皆斤拷省时锟斤拷
+ * 锟节讹拷锟斤拷Java锟斤拷效锟绞非筹拷之锟酵ｏ拷锟截憋拷锟斤拷锟斤拷锟斤拷锟斤拷IO锟较ｏ拷锟斤拷锟皆讹拷锟斤拷锟叫达拷锟斤拷锟斤拷锟斤拷锟斤拷锟侥匡拷锟斤拷锟斤拷锟斤拷锟绞癸拷锟絊canner锟洁，使锟斤拷BufferedReader锟斤拷锟矫很讹拷
+ * 锟斤拷然BufferedReader锟斤拷使锟矫诧拷锟斤拷么锟斤拷锟姐，锟斤拷锟斤拷锟杰斤拷约时锟斤拷
+ * 锟斤拷纬锟绞憋拷锟斤拷锟斤拷锟轿癸拷锟斤拷锟絊canner锟斤拷
  */
 
 import java.io.BufferedInputStream;
@@ -38,26 +38,15 @@ public class PAT1012 {
     
     public void cal() throws Exception
     {
-        /*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = br.readLine();
-        String tmp[] = str.split(" ");
-        N = Integer.parseInt(tmp[0]);
-        M = Integer.parseInt(tmp[1]);*/
+
         
-        Scanner in = new Scanner(new BufferedInputStream(System.in));
+        Scanner in = new Scanner(System.in);
         N = in.nextInt();
         M = in.nextInt();
         list  = new grade[N];
         
         for(int i = 0; i < N; i++)
-        {
-            /*str = br.readLine();
-            tmp = str.split(" ");
-            int id = Integer.parseInt(tmp[0]);
-            double C = Integer.parseInt(tmp[1]);
-            double M = Integer.parseInt(tmp[2]);
-            double E = Integer.parseInt(tmp[3]);*/
-            
+        {            
             int id = in.nextInt();
             double C = in.nextInt();
             double M = in.nextInt();
@@ -66,12 +55,14 @@ public class PAT1012 {
             list[i] = new grade(id, C, M, E);
         }
         
+        int[] query = new int[M];
+        for(int i = 0; i < M; i++)
+            query[i] = in.nextInt();
+        
         for(int i = 0; i < M; i++)
         {
-            /*str = br.readLine();
-            int id = Integer.parseInt(str);*/
             
-            int id = in.nextInt();
+            int id = query[i];
             int k = -1;
             for(int j = 0; j < N; j++)
             {
@@ -125,10 +116,10 @@ public class PAT1012 {
                 rank = rankE;
                 best = "E";
             }
-            
+
             System.out.println(""+rank+" "+best);
         }
-
+        in.close();
     }
     
     public static void main(String[] args) throws Exception {
